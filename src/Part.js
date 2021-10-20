@@ -1,9 +1,9 @@
 import React from "react";
 
-function Part({part, exercise}) {
+function Part({name, exercises}) {
     return (
         <p>
-            {part} : {exercise}
+            {name} : {exercises}
         </p>
     )
 

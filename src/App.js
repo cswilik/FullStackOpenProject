@@ -4,24 +4,36 @@ import Content from './Content';
 import Total from './Total';
 
 function App() {
-  let course = 'Half Stack Application Development'
-  let part1 = "Fundamentals of React"
-  let exercises1 = 10
-  let part2 = "Using Props"
-  let exercises2 = 7
-  let part3= 'State of Component'
-  let exercises3 = 14
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
+
+  let exercises = course.parts.map(p => {
+    return p.exercises
+  })
+
+
+  
 
   return (
     <div>
-      <Header course={course}/>
-      <Content 
-        part1={part1} part2={part2} part3={part3} 
-        exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}
-      />
-      <Total 
-        exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}
-      />
+      <Header course={course.name}/>
+      <Content parts = {course.parts} />
+      <Total exercises={exercises}/>
     </div>
   );
 }
