@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Featured from './Featured'
 
 const App2 = () => {
   const anecdotes = [
@@ -11,23 +12,33 @@ const App2 = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
 
-   
+
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState({})
 
- 
-  
+  let copy = {...votes}
 
   const handleClick = () => {
       let num = Math.floor(Math.random() * anecdotes.length)
       setSelected(num)
-      
   }
 
+  const handleVote = () => {
+    copy[selected] = (copy[selected] || 0) + 1
+    setVotes(copy)
+  }
+
+  let sortedVotes = Object.keys(votes).sort((a, b) => votes[b] - votes[a]);
+
+  console.log(sortedVotes[0])
   return (
     <div>
-      {anecdotes[selected]}<br></br>
+        <h1>Anecdote of the Day</h1>
+      "{anecdotes[selected]}" has {votes[selected]} vote(s)
+      <br></br>
+      <button onClick={handleVote}>Vote</button>
       <button onClick={handleClick}>Random Anecdote</button>
+      <Featured />
     </div>
   )
 }
