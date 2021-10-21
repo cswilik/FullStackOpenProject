@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import App from './App';
+// import App from './unicafe/App';
+import App2 from './anecdotes/App2'
 
+
+// if you want to view 'App' in other folders, please uncomment the import you would like
+// and change belong component respectively
 
 ReactDOM.render(
-    <App />,
+    <App2 />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 
