@@ -12,7 +12,7 @@ const Featured = ({anecdotes, votes}) => {
         }
         featured = anecdotes[maxKey]
     }
-    
+
 
     return (
         <div>
