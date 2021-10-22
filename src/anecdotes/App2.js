@@ -15,8 +15,10 @@ const App2 = () => {
 
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState({})
+//   const [maxVotes, setMaxVotes] = useState("")
 
   let copy = {...votes}
+
 
   const handleClick = () => {
       let num = Math.floor(Math.random() * anecdotes.length)
@@ -28,9 +30,7 @@ const App2 = () => {
     setVotes(copy)
   }
 
-  let sortedVotes = Object.keys(votes).sort((a, b) => votes[b] - votes[a]);
 
-  console.log(sortedVotes[0])
   return (
     <div>
         <h1>Anecdote of the Day</h1>
@@ -38,7 +38,7 @@ const App2 = () => {
       <br></br>
       <button onClick={handleVote}>Vote</button>
       <button onClick={handleClick}>Random Anecdote</button>
-      <Featured />
+      <Featured anecdotes={anecdotes} votes={votes}/>
     </div>
   )
 }
